@@ -11,15 +11,24 @@ class Quiz extends React.Component {
     this.props.getQuizItems();
   }
 
+  onClick() {
+    Object.values(this.refs).forEach(key => {
+      key.checkAnswer();
+    });
+  }
+
   render() {
     var items = this.props.quizReducers.items.map(function(item) {
-      return <QuizItem key={ item.id } item={ item } />
+      return <QuizItem ref={ item.id } key={ item.id } item={ item } />
     });
 
     return(
       <div>
         <h1>Quiz</h1>
         { items }
+        <button onClick={ this.onClick.bind(this) }>
+          Check Answer
+        </button>
       </div>
     )
   }
