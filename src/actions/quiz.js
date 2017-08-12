@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const host = 'https://localhost:3000/quiz_items';
+const host = 'http://localhost:3000/quiz_items';
 
 export function getQuizItems(dispatch) {
   return function(dispatch) {
